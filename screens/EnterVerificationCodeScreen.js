@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { layout, typography } from '../themes';
+import { Text, StyleSheet } from 'react-native';
+import { Container, Content, Button } from 'native-base';
 
 class EnterVerificationCodeScreen extends React.Component
 {
@@ -13,11 +13,24 @@ class EnterVerificationCodeScreen extends React.Component
 	render()
 	{
 		return (
-			<View style={layout.container}>
-				<Text style={typography.p}>Enter your code</Text>
-			</View>
+			<Container>
+				<Content padder={true}>
+					<Text style={styles.p}>Enter your code</Text>
+
+					<Button rounded success onPress={() => this.props.navigator.push('home') }>
+						<Text style={{ color: '#fff' }}>Go to App</Text>
+					</Button>
+				</Content>
+			</Container>
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+	p: {
+		color: '#555',
+		marginBottom: 16,
+	}
+})
 
 export default EnterVerificationCodeScreen;
